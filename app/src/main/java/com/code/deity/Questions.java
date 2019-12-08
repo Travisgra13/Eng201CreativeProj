@@ -2,8 +2,11 @@ package com.code.deity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,21 +34,24 @@ public class Questions extends AppCompatActivity {
         firstButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                determineResult(1);
+                advanceToNextQuestion();
             }
         });
         secondButton = findViewById(R.id.option2);
         secondButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                determineResult(2);
+                advanceToNextQuestion();
             }
         });
         thirdButton = findViewById(R.id.option3);
         thirdButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                determineResult(3);
+                advanceToNextQuestion();
             }
         });
         popul = findViewById(R.id.imagePopul);
@@ -116,7 +122,77 @@ public class Questions extends AppCompatActivity {
     private void determineResult(int optionNum) {
         switch (questionNum) {
             case 1:
+                if (optionNum == 1) {
+                    data.increment(true, false, false, false);
+                    illuminateDeityImages(true, false, false, false);
+                }
+                else if (optionNum == 2) {
+                    data.increment(false, true, true, false);
+                    illuminateDeityImages(false, true, true, false);
 
+                }
+                else if (optionNum == 3) {
+                    data.increment(false, false, false, true);
+                   illuminateDeityImages(false, false, false, true);
+                }
+                break;
+            case 2:
+                if (optionNum == 1) {
+                    data.increment(true, true, false, false);
+                    illuminateDeityImages(true, true, false, false);
+                }
+                else if (optionNum == 2) {
+                    data.increment(false, false, true, true);
+                    illuminateDeityImages(false, false, true, true);
+                }
+                else if (optionNum == 3) {
+                    data.increment(true, true, false, false);
+                    illuminateDeityImages(true, true, false, false);
+                }
+                break;
+            case 3:
+                if (optionNum == 1) {
+                    data.increment(true, true, false, false);
+                    illuminateDeityImages(true, true, false, false);
+
+                }
+                else if (optionNum == 2) {
+                    data.increment(false, false, false, true);
+                    illuminateDeityImages(false, false, false, true);
+                }
+                else if (optionNum == 3) {
+                    data.increment(false, false, true, false);
+                    illuminateDeityImages(false, false, true, false);
+                }
+                break;
+            case 4:
+                if (optionNum == 1) {
+                    data.increment(false, false, false, true);
+                   illuminateDeityImages(false, false, false, true);
+                }
+                else if (optionNum == 2) {
+                    data.increment(false, false, true, false);
+                    illuminateDeityImages(false, false, true, false);
+                }
+                else if (optionNum == 3) {
+                    data.increment(true, true, false, false);
+                    illuminateDeityImages(true, true, false, false);
+                }
+                break;
+            case 5:
+                if (optionNum == 1) {
+                    data.increment(false, false, true, true);
+                    illuminateDeityImages(false, false, true, true);
+                }
+                else if (optionNum == 2) {
+                    data.increment(false, false, true, false);
+                    illuminateDeityImages(false, false, true, false);
+                }
+                else if (optionNum == 3) {
+                    data.increment(true, true, false, false);
+                    illuminateDeityImages(true, true, false, false);
+                }
+                break;
         }
     }
 
@@ -134,8 +210,37 @@ public class Questions extends AppCompatActivity {
             startQuestion5();
         }
         if (this.questionNum == 5) {
-            //finish
+            Intent intent = new Intent(Questions.this, Result.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("data", data);
+            intent.putExtras(bundle);
+            startActivity(intent);
         }
+        questionNum++;
+    }
+
+    private void illuminateDeityImages(boolean incrementedEnuma, boolean incrementedWorks, boolean incrementedGenesis, boolean incrementedPopul) {
+        if (incrementedEnuma) {
+            ImageView myImageView = findViewById(R.id.imageEnuma);
+            Animation myFadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fadein);
+            myImageView.startAnimation(myFadeInAnimation); //Set animation to your ImageView
+        }
+        if (incrementedWorks) {
+            ImageView myImageView = findViewById(R.id.imageWork);
+            Animation myFadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fadein);
+            myImageView.startAnimation(myFadeInAnimation); //Set animation to your ImageView
+        }
+        if (incrementedGenesis) {
+            ImageView myImageView = findViewById(R.id.imageGenesis);
+            Animation myFadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fadein);
+            myImageView.startAnimation(myFadeInAnimation); //Set animation to your ImageView
+        }
+        if (incrementedPopul) {
+            ImageView myImageView = findViewById(R.id.imagePopul);
+            Animation myFadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fadein);
+            myImageView.startAnimation(myFadeInAnimation); //Set animation to your ImageView
+        }
+
     }
 
     @Override

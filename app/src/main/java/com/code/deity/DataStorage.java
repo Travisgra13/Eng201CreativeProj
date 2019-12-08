@@ -1,6 +1,8 @@
 package com.code.deity;
 
-public class DataStorage {
+import java.io.Serializable;
+
+public class DataStorage implements Serializable {
     private int enumaElish;
     private int worksAndDays;
     private int genesis;
