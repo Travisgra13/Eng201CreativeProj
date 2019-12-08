@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Deity</string>
+    <string name="app_greeting">Welcome to Deity</string>
+    <string name="startPrompt">Which Deity are you most similar to?</string>
+
+    <string name="question1">Do you have conflict with your colleagues often?</string>
+    <string name="ans1Ques1">Yes, war is inevitable in the classroom.</string>
+    <string name="ans2Ques1">Sometimes, but I can keep my cool usually.</string>
+    <string name="ans3Ques1">Not at all, I am a peacemaker.</string>
+
+    <string name="question2">What is the most important thing in the list below?</string>
+    <string name="ans1Ques2">Me duh!</string>
+    <string name="ans2Ques2">My art creations. They define me.</string>
+    <string name="ans3Ques2">My best buds!</string>
+
+    <string name="question3">When given a big task at home, you would:</string>
+    <string name="ans1Ques3">Make my idiot sibling do it. It is called delegation</string>
+    <string name="ans2Ques3">Do it all myself. Yes I am cool like that.</string>
+    <string name="ans3Ques3">Do it together with my idiot sibling. He can learn a lot from this.</string>
+
+    <string name="question4">Your children are playing in the kitchen near a hot stove. What do you do?</string>
+    <string name="ans1Ques4">You freak out and stop them faster than they can blink.</string>
+    <string name="ans2Ques4">Eh. Whatever they should be fine.</string>
+    <string name="ans3Ques4">I do not care as long as they finish their chores</string>
+
+    <string name="question5">All bad things come from:</string>
+    <string name="ans1Ques5">Peoples\' actions.</string>
+    <string name="ans2Ques5">The father of lies.</string>
+    <string name="ans3Ques5">It\'s all random.</string>
+
+</resources>
